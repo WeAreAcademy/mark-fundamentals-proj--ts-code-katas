@@ -36,6 +36,7 @@ Note that:
 
 1. Exercism's using Jest's `describe` function to group together related tests (which helps for readability and organisation). We'll be doing this in future testsY ou can [consult the Jest `describe` documentation]2(https://jestjs.io/docs/en/api#describename-fn) for more information.
 2. Exercism's documentation suggests `npm install` and `npm test` - these are the equivalent of `yarn` and `yarn test`, respectively, which we've been using (you can use whichever; we suggest `yarn` for consistency).
+3. Exercism's test files are using `.spec.js`; Jest recognises both `.test.js` and `.spec.js` files by default
 
 ## Exercise 2: Further Exercism challenges
 
