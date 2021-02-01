@@ -38,6 +38,9 @@ Note that:
 2. Exercism's documentation suggests `npm install` and `npm test` - these are the equivalent of `yarn` and `yarn test`, respectively, which we've been using (you can use whichever; we suggest `yarn` for consistency).
 3. Exercism's test files are using `.spec.js`; Jest recognises both `.test.js` and `.spec.js` files by default
 
+### Submitting your solutions to Exercism
+When you are ready to submit, navigate to the folder which your solution is in. For example, `cd ~/Exercism/javascript/hello-world`. Then run the command `exercism submit <filename.fileextension>`, so for hello world in javascript this would be `exercism submit hellow-world.js`.
+
 ## Exercise 2: Further Exercism challenges
 
 At this point in time - one week into your full-time training! - we recommend working through the challenges labelled as 'Easy'.
