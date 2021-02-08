@@ -61,3 +61,17 @@ module.exports = {
   ],
 };
 ```
+
+### Converting to TypeScript
+
+Now, it's pretty simple to convert to TypeScript: duplicate the files `hello-world.js` and `hello-world.spec.js`, but turn the `.js` extension into `.ts` - and, when you run the tests, you should see both `hello-world.spec.js` _and_ `hello-world.spec.ts` _both_ passing.
+
+In this case, we haven't _had_ to add in any typings, but we could have:
+
+```ts
+// hello-world.ts
+
+export const hello = (): string => {
+  return "Hello, World!";
+};
+```
