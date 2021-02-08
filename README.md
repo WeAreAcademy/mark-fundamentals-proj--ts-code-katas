@@ -75,3 +75,24 @@ export const hello = (): string => {
   return "Hello, World!";
 };
 ```
+
+### Adding type-checking
+
+The Jest docs warn us about the following:
+
+> there are some caveats to using TypeScript with Babel. Because TypeScript support in Babel is purely transpilation, Jest will not type-check your tests as they are run. If you want that, you can use `ts-jest` instead, or just run the TypeScript compiler `tsc` separately (or as part of your build process).
+
+We'll use `tsc` as it is easiest to plugin.
+
+We recommend editing your `test` script in `package.json` as follows:
+
+```json
+"test": "yarn test:types && yarn test:spec",
+"test:spec": "jest --no-cache ./*",
+"test:types": "tsc --noEmit",
+```
+
+so that:
+
+1. `yarn test` checks your types before running the test files
+2. `yarn test:spec` lets you run test files without checking types if so desired
