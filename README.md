@@ -1,52 +1,63 @@
----
-module: mark-fundamentals
-
-methods:
-  - team
-  - pair
-  - solo
-
-tags:
-  - wip
----
-
-# JS Code Katas
+# TS Code Katas
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
 
 > This is part of Academy's [technical curriculum for **The Mark**](https://github.com/WeAreAcademy/curriculum-mark). All parts of that curriculum, including this project, are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 
-You're now going to reinforce the TDD process and your JavaScript skills by completing a series of Exercism katas.
+You're now going to reinforce the TDD process and your TypeScript skills by completing a series of Exercism katas.
 
 ## Learning Outcomes
 
 - Use a test-driven development process
+- Add TypeScript to a JavaScript codebase
 
-## Exercise 1: Exercism Hello World - JavaScript
+## Exercise 1: Exercism Hello World - TypeScript
 
-> 🎯 **Success criterion:** A completed and submitted version of the Exercism _Hello World_ problem
+> 🎯 **Success criterion:** A TypeScript version of the JS 'Hello World' kata
 
 [Exercism](https://exercism.io/) has lots of exercises for a variety of challenges.
 
-In this exercise, you'll complete the basic JavaScript Hello World challenge.
+Surprisingly (and unfortunately for our desired goals), the TypeScript katas are _not_ a direct translation of the JavaScript katas - for example, the TypeScript Hello World kata uses object-oriented programming, whereas the JavaScript Hello World kata does not.
 
-Exercism has a pretty good [Getting Started](https://exercism.io/getting-started) guide and documentation - see what you can do by following their guides!
+The goal right now is _not_ to practice or learn object-oriented programming (which can be done in either JavaScript _or_ TypeScript) - it is important not to confuse "this is an object-oriented thing" with "this is a TypeScript thing" - so, instead, we'll convert a JavaScript kata to a TypeScript one manually.
 
-Note that:
+In this exercise, you'll convert the basic JavaScript Hello World challenge into TypeScript.
 
-1. Exercism's using Jest's `describe` function to group together related tests (which helps for readability and organisation). We'll be doing this in future tests. You can [consult the Jest `describe` documentation](https://jestjs.io/docs/en/api#describename-fn) for more information.
-2. Exercism's documentation suggests `npm install` and `npm test` - these are the equivalent of `yarn` and `yarn test`, respectively, which we've been using (you can use whichever; we suggest `yarn` for consistency).
-3. Exercism's test files are using `.spec.js`; Jest recognises both `.test.js` and `.spec.js` files by default
+For now, we'll do this in the same directory where your JS version is, so the TS and JS versions live side-by-side, although you could do this on a copy of your JS directory.
 
-### Submitting your solutions to Exercism
-When you are ready to submit, navigate to the folder which your solution is in. For example, `cd ~/Exercism/javascript/hello-world`. Then run the command `exercism submit <filename.fileextension>`, so for hello world in javascript this would be `exercism submit hellow-world.js`.
+### Installing TypeScript
 
-## Exercise 2: Further Exercism challenges
+We're going to install TypeScript our project under `devDependencies` by running:
 
-At this point in time - one week into your full-time training! - we recommend working through the challenges labelled as 'Easy'.
+```bash
+yarn add -D typescript
+# or, equivalently,
+# yarn add --dev typescript
+```
 
-If you completed [any previous Python Exercism katas](https://github.com/WeAreAcademy/mark-induction-proj--code-katas) we suggest that you redo them in JavaScript (as a way to notice similarities and differences between the the languages).
+### Configuring TypeScript and Jest/Babel
 
-We also recommend trying to follow strict test-driven development (write a test for new behaviour/functionality before you write the code for it), and adding in your own custom tests for smaller helper functions that you write as part of your solution.
+We want to configure TypeScript to have maximum strictness.
 
-~3-5 Exercism katas is the number we suggest before moving on (so that you have sufficient comfort with JavaScript before starting TypeScript!).
+This repo includes a `tsconfig.json` which you can just copy and paste into the root of your project.
+
+Because of the way Exercism has set up this project, you'll also need to follow this Jest guide: [Using TypeScript](https://jestjs.io/docs/en/getting-started#using-typescript).
+
+Afterwards, your `babel.config.js` should look like:
+
+```js
+module.exports = {
+  presets: [
+    [
+      "@babel/env",
+      {
+        targets: {
+          node: "current",
+        },
+        useBuiltIns: false,
+      },
+    ],
+    "@babel/preset-typescript",
+  ],
+};
+```
