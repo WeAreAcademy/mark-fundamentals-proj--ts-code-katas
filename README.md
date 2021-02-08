@@ -96,3 +96,7 @@ so that:
 
 1. `yarn test` checks your types before running the test files
 2. `yarn test:spec` lets you run test files without checking types if so desired
+
+## Exercise 2: Further Exercism katas
+
+Now, you can apply the same process to convert other Exercism katas into TypeScript!
